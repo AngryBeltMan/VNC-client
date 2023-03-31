@@ -1,6 +1,5 @@
 use eframe::egui;
-use std::sync::{Arc,Mutex};
-use std::time::Duration;
+
 pub struct MyApp {
     code:String
 }

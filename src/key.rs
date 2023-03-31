@@ -5,93 +5,45 @@ pub trait ToKey {
 impl ToKey for String {
     fn to_key(&self) -> Option<Key> {
         match self.as_str() {
-            "a" => {
-                return Some(Key::KeyA);
-            },
-            "b" => {
-                return Some(Key::KeyB);
-            },
-            "c" => {
-                return Some(Key::KeyC);
-            },
-            "d" => {
-                return Some(Key::KeyD);
-            },
-            "e" => {
-                return Some(Key::KeyE);
-            },
-            "f" => {
-                return Some(Key::KeyF);
-            },
-            "g" => {
-                return Some(Key::KeyG);
-            },
-            "h" => {
-                return Some(Key::KeyH);
-            },
-            "i" => {
-                return Some(Key::KeyI);
-            },
-            "j" => {
-                return Some(Key::KeyJ);
-            },
-            "k" => {
-                return Some(Key::KeyK);
-            },
-            "l" => {
-                return Some(Key::KeyL);
-            },
-            "m" => {
-                return Some(Key::KeyM);
-            },
-            "n" => {
-               return Some(Key::KeyN);
-            },
-            "o" => {
-                return Some(Key::KeyO);
-            },
-            "p" => {
-                return Some(Key::KeyP);
-            },
-            "q" => {
-                return Some(Key::KeyQ);
-            },
-            "r" => {
-                return Some(Key::KeyR);
-            },
-            "s" => {
-                return Some(Key::KeyS);
-            },
-            "t" => {
-                return Some(Key::KeyT);
-            },
-            "u" => {
-                return Some(Key::KeyU);
-            },
-            "v" => {
-                return Some(Key::KeyV);
-            },
-            "w" => {
-                return Some(Key::KeyW);
-            },
-            "x" => {
-                return Some(Key::KeyX);
-            },
-            "y" => {
-                return Some(Key::KeyY);
-            },
-            "z" => {
-                return Some(Key::KeyZ);
-            },
-            "shift" => {
-                return Some(Key::ShiftLeft);
-            },
-            "backspace" => {
-                return Some(Key::Backspace);
-            },
-            "enter" => {
-                return Some(Key::Return);
-            }
+            "a" => { return Some(Key::KeyA); },
+            "b" => { return Some(Key::KeyB); },
+            "c" => { return Some(Key::KeyC); },
+            "d" => { return Some(Key::KeyD); },
+            "e" => { return Some(Key::KeyE); },
+            "f" => { return Some(Key::KeyF); },
+            "g" => { return Some(Key::KeyG); },
+            "h" => { return Some(Key::KeyH); },
+            "i" => { return Some(Key::KeyI); },
+            "j" => { return Some(Key::KeyJ); },
+            "k" => { return Some(Key::KeyK); },
+            "l" => { return Some(Key::KeyL); },
+            "m" => { return Some(Key::KeyM); },
+            "n" => { return Some(Key::KeyN); },
+            "o" => { return Some(Key::KeyO); },
+            "p" => { return Some(Key::KeyP); },
+            "q" => { return Some(Key::KeyQ); },
+            "r" => { return Some(Key::KeyR); },
+            "s" => { return Some(Key::KeyS); },
+            "t" => { return Some(Key::KeyT); },
+            "u" => { return Some(Key::KeyU); },
+            "v" => { return Some(Key::KeyV); },
+            "w" => { return Some(Key::KeyW); },
+            "x" => { return Some(Key::KeyX); },
+            "y" => { return Some(Key::KeyY); },
+            "z" => { return Some(Key::KeyZ); },
+            "shift" => { return Some(Key::ShiftLeft); },
+            "backspace" => { return Some(Key::Backspace); },
+            "enter" => { return Some(Key::Return); },
+            "1" | "!" => {return Some(Key::Num1)},
+            "2" | "@" => {return Some(Key::Num2)},
+            "3" | "#" => {return Some(Key::Num3)},
+            "4" | "$" => {return Some(Key::Num4)},
+            "5" | "%" => {return Some(Key::Num5)},
+            "6" | "^" => {return Some(Key::Num6)},
+            "7" | "&" => {return Some(Key::Num7)},
+            "8" | "*" => {return Some(Key::Num8)},
+            "9" | "(" => {return Some(Key::Num9)},
+            "0" | ")" => {return Some(Key::Num0)},
             _ => {return None;}
         }
     }
