@@ -48,7 +48,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let url = format!("wss://{URL}/ws/client/keyboard/{}",JOIN_CODE.as_str());
 
-    let mut stream = connect_async(url).await.unwrap().0;
+    let mut stream = connect_async(&url).await.unwrap().0;
 
     let url = format!("wss://{URL}/ws/{}",JOIN_CODE.as_str());
 
@@ -59,6 +59,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let d = Display::primary().unwrap();
 
     let w = d.width();
+    let h = d.height();
 
     let settings = settings::read_settings();
 
@@ -77,7 +78,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             match move_ment[0] {
                                 "MOUSEMOVE" => {
                                     let x = move_ment[1].parse::<f64>().unwrap() * (w as f64/move_ment[3].parse::<f64>().unwrap());
-                                    let y = move_ment[2].parse::<f64>().unwrap() * (w as f64/move_ment[4].parse::<f64>().unwrap());
+                                    let y = move_ment[2].parse::<f64>().unwrap() * (h as f64/move_ment[4].parse::<f64>().unwrap());
                                     send(&EventType::MouseMove {x,y}).await;
                                     println!("moved {x} {y}");
                                 },
