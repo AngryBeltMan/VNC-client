@@ -34,6 +34,7 @@ impl ToKey for String {
             "shift" => { return Some(Key::ShiftLeft); },
             "backspace" => { return Some(Key::Backspace); },
             "enter" => { return Some(Key::Return); },
+            " " => { return Some(Key::Space); },
             "1" | "!" => {return Some(Key::Num1)},
             "2" | "@" => {return Some(Key::Num2)},
             "3" | "#" => {return Some(Key::Num3)},
@@ -44,6 +45,18 @@ impl ToKey for String {
             "8" | "*" => {return Some(Key::Num8)},
             "9" | "(" => {return Some(Key::Num9)},
             "0" | ")" => {return Some(Key::Num0)},
+            ";" | ":" => {return Some(Key::SemiColon)},
+            "[" | "{" => {return Some(Key::LeftBracket)},
+            "]" | "}" => {return Some(Key::RightBracket)},
+            "'" | r#"""# => {return Some(Key::Quote)},
+            r#"\"# | "|" => {return Some(Key::BackSlash)},
+            "/" | "?" => {return Some(Key::Slash)},
+            "," | "<" => {return Some(Key::Comma)},
+            "." | ">" => {return Some(Key::Dot)},
+            "arrowup" => {return Some(Key::UpArrow)},
+            "arrowdown" => {return Some(Key::DownArrow)},
+            "arrowleft" => {return Some(Key::LeftArrow)},
+            "arrowright" => {return Some(Key::RightArrow)},
             _ => {return None;}
         }
     }

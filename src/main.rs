@@ -2,12 +2,10 @@ use image::{codecs::jpeg::JpegEncoder, ColorType};
 use crate::key::ToKey;
 use rdev::{simulate,Button,EventType,SimulateError};
 use lazy_static::lazy_static;
-use std::sync::Mutex as StdMutex;
 use tungstenite::Message;
 use std::{
     time::Duration
     ,thread
-    ,sync::Arc
 };
 use tokio::runtime::Runtime; use scrap::{Capturer,Display};
 use futures_util::{SinkExt, StreamExt};
@@ -23,8 +21,6 @@ mod settings;
 
 const URL:&str = "vnc-shuttle.shuttleapp.rs";
 lazy_static! {
-    static ref EGUI_DELAY:Arc<StdMutex<Duration>> = Arc::new(StdMutex::new(Duration::from_millis(60)));
-    static ref QUALITY:Arc<StdMutex<u32>> = Arc::new(StdMutex::new(0));
     static ref RUN_TIME:Runtime = {
         tokio::runtime::Runtime::new().unwrap()
     };
@@ -42,11 +38,7 @@ async fn send(event:&EventType) {
 }
 #[tokio::main(flavor = "multi_thread",worker_threads = 10)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let url = format!("https://{URL}/server/{}",JOIN_CODE.as_str());
-
-    reqwest::Client::new().post(url).send().await?;
-
-    let url = format!("wss://{URL}/ws/client/keyboard/{}",JOIN_CODE.as_str());
+let url = format!("wss://{URL}/ws/client/keyboard/{}",JOIN_CODE.as_str());
 
     let mut stream = connect_async(&url).await.unwrap().0;
 
