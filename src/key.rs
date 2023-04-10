@@ -51,7 +51,7 @@ impl ToKey for String {
             "'" | r#"""# => {return Some(Key::Quote)},
             r#"\"# | "|" => {return Some(Key::BackSlash)},
             "/" | "?" => {return Some(Key::Slash)},
-            "," | "<" => {return Some(Key::Comma)},
+            "" | "<" => {return Some(Key::Comma)},
             "." | ">" => {return Some(Key::Dot)},
             "arrowup" => {return Some(Key::UpArrow)},
             "arrowdown" => {return Some(Key::DownArrow)},
